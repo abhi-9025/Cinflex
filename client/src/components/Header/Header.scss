@@ -1,0 +1,23 @@
+.header__logo{
+    display: flex;
+    flex-direction: row;
+    // justify-content: center;
+    align-items: center;
+    justify-content: space-around;
+    width: 100vw;
+    height: 50px;
+
+    img{
+        height: 50px;
+        width: 200px;
+    }
+    button{
+        height: 30px;
+        width: 80px;
+        background-color: red;
+        color: white;
+        font-size: 16px;
+        // background:none;
+        border-radius:5px
+    }
+}
