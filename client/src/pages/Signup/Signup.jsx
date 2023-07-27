@@ -39,7 +39,7 @@ const Signup = () => {
     <div className="signup__container">
       <Backgroundimage />
       <div className="signup__content">
-        <Header login="login" />
+        <Header login={true} />
         <div className="signup__form">
           <div>
             <h1 className="text-white">Unlimited movies, TV shows and more</h1>
