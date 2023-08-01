@@ -5,10 +5,12 @@ import MovieLogo from "../../assets/homeTitle.webp"
 import {FaPlay} from "react-icons/fa"
 import {AiOutlineInfoCircle} from "react-icons/ai"
 import './Cinflex.scss'
+import { useNavigate } from 'react-router-dom'
 
 
 const Cinflex = () => {
-
+  
+  const navigate=useNavigate()
   const [isScrolled,setIsScrolled]=useState(false)
 
   window.onscroll=()=>{
@@ -30,7 +32,7 @@ const Cinflex = () => {
             </div>
             <div className='cinflex__buttons'>
             <div className='play'>
-               <button><FaPlay size={18}/>  Play</button>
+               <button onClick={()=>navigate('/player')}><FaPlay size={18}/>  Play</button>
             </div>
             <div className='more_info'>
                <button><AiOutlineInfoCircle size={18}/>  MoreInfo</button>

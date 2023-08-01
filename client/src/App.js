@@ -1,5 +1,5 @@
 import {BrowserRouter,Route,Router,Routes} from 'react-router-dom'
-import { Cinflex, Login, Signup } from './pages';
+import { Cinflex, Login, Player, Signup } from './pages';
 
 function App() {
   return (
@@ -9,6 +9,7 @@ function App() {
         <Route exact path='/' Component={Cinflex}/>
         <Route exact path='/login' Component={Login}/>
         <Route exact  path='/signup' Component={Signup}/>
+        <Route exact path='player' Component={Player}/>
        </Routes>
        
        </BrowserRouter>
