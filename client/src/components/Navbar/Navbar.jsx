@@ -6,7 +6,7 @@ import { FaPowerOff, FaSearch } from "react-icons/fa";
 import { onAuthStateChanged, signOut} from "firebase/auth";
 import {firebaseAuth} from '../../utils/firebase-config'
 
-const Navbar = () => {
+const Navbar = ({isScrolled}) => {
 
    const navigate=  useNavigate()
   const headerLink = [
@@ -20,7 +20,7 @@ const Navbar = () => {
     if(!currentUser) navigate("/login")
   })
   return (
-    <div className="navbar__container">
+    <div className={`navbar__container ${isScrolled ? "scrolled" : ""}`}>
       <div className="navbar__left-container">
         <img src={logo} alt="logo" />
         <div className="navbar__list-container">

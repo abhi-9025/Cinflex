@@ -60,11 +60,13 @@ const Login = () => {
             )}
             {!showPassword && (
               <button onClick={() => setShowPassword(true)}>Enter Password</button>
+              
             )}
-          </div>
-          <button className="signin__login" onClick={handleSignIn}>
+             <button className="signin__login" onClick={handleSignIn}>
             Sign In
           </button>
+          </div>
+         
         </div>
       </div>
     </div>

@@ -69,10 +69,11 @@ const Signup = () => {
             {!showPassword && (
               <button onClick={() => setShowPassword(true)}>Get Started</button>
             )}
-          </div>
-          <button className="signup__login" onClick={handleSignIn}>
+             <button className="signup__login" onClick={handleSignIn}>
             Sign up
           </button>
+          </div>
+         
         </div>
       </div>
     </div>
