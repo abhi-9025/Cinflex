@@ -1,8 +1,11 @@
 import React from 'react'
+import { Navbar } from '../../components'
 
 const Cinflex = () => {
   return (
-    <div>Cinflex</div>
+    <div>
+      <Navbar/>
+    </div>
   )
 }
 
