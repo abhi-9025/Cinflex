@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Navbar } from '../../components'
 import backgroundImage from "../../assets/home.jpg"
 import MovieLogo from "../../assets/homeTitle.webp"
@@ -6,12 +6,26 @@ import {FaPlay} from "react-icons/fa"
 import {AiOutlineInfoCircle} from "react-icons/ai"
 import './Cinflex.scss'
 import { useNavigate } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { getGenres, getMovies } from '../../store/cinflicSlice'
 
 
 const Cinflex = () => {
   
   const navigate=useNavigate()
   const [isScrolled,setIsScrolled]=useState(false)
+  const genresLoaded=useSelector((state)=>state.cinflex.genresLoaded)
+
+ const dispatch= useDispatch()
+
+ useEffect(()=>{
+  dispatch(getGenres())
+ },[])
+
+ useEffect(()=>{
+  if(genresLoaded)
+    dispatch(getMovies({type:"all"}))
+ })
 
   window.onscroll=()=>{
     setIsScrolled(window.pageYOffset===0?false:true);
