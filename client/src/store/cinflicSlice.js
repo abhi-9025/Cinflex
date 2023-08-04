@@ -1,8 +1,6 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit"
 import axios from 'axios'
-// import { API_KEY, TMDB_BASE_URL } from "../utils/constants"
-const API_KEY=process.env.API_KEY;
-const TMDB_BASE_URL=process.env.TMDB_BASE_URL;
+import { API_KEY, TMDB_BASE_URL } from "../utils/constants"
 
 const initialState={
     movies:[],
@@ -10,9 +8,6 @@ const initialState={
     genresLoaded:false,
 }
 
-
-console.log("Api_key",API_KEY)
-console.log("Api_key",TMDB_BASE_URL)
 
 const createArrayFromRawData=(array,moviesArray,genres)=>{
    

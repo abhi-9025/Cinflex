@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Navbar } from '../../components'
+import { Navbar, Slider } from '../../components'
 import backgroundImage from "../../assets/home.jpg"
 import MovieLogo from "../../assets/homeTitle.webp"
 import {FaPlay} from "react-icons/fa"
@@ -15,6 +15,7 @@ const Cinflex = () => {
   const navigate=useNavigate()
   const [isScrolled,setIsScrolled]=useState(false)
   const genresLoaded=useSelector((state)=>state.cinflex.genresLoaded)
+  const movies=useSelector((state)=>state.cinflex.movies)
 
  const dispatch= useDispatch()
 
@@ -54,6 +55,9 @@ const Cinflex = () => {
             </div>
 
         </div>
+      </div>
+      <div style={{overflow:'hidden'}}>
+      <Slider/>
       </div>
     </div>
   )
