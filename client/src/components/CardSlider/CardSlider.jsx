@@ -25,10 +25,10 @@ const CardSlider = ({ data, title }) => {
       onMouseEnter={() => setShowControls(true)}
       onMouseLeave={() => setShowControls(false)}
     >
-      <h1>{title}</h1>
+      <h1 className="text-white">{title}</h1>
       <div className="wrapper">
         <div className={`slider-action left ${!showControls ? "none" : ""}`}>
-          <AiOutlineLeft onClick={() => handleDirection("left")} />
+          <AiOutlineLeft onClick={() => handleDirection("left")} color="white"   />
         </div>
         <div
           style={{ display: "flex", flexDirection: "row" }}
@@ -39,10 +39,13 @@ const CardSlider = ({ data, title }) => {
             return <Card movieData={movie} index={index} key={movie.id} />;
           })}
         </div>
+        <div className={`slider-action right ${!showControls ? "none" : ""}`}>
+        <AiOutlineRight onClick={() => handleDirection("right")} color="white" />
       </div>
-      <div className={`slider-action right ${!showControls ? "none" : ""}`}>
-        <AiOutlineRight onClick={() => handleDirection("right")} />
       </div>
+      {/* <div className={`slider-action right ${!showControls ? "none" : ""}`}>
+        <AiOutlineRight onClick={() => handleDirection("right")} color="white" />
+      </div> */}
     </div>
   );
 };

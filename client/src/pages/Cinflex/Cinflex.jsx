@@ -56,7 +56,7 @@ const Cinflex = () => {
 
         </div>
       </div>
-      <div style={{overflow:'hidden'}}>
+      <div >
       <Slider/>
       </div>
     </div>
