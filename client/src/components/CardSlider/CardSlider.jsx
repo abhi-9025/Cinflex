@@ -43,11 +43,8 @@ const CardSlider = ({ data, title }) => {
         <AiOutlineRight onClick={() => handleDirection("right")} color="white" />
       </div>
       </div>
-      {/* <div className={`slider-action right ${!showControls ? "none" : ""}`}>
-        <AiOutlineRight onClick={() => handleDirection("right")} color="white" />
-      </div> */}
     </div>
   );
 };
 
-export default CardSlider;
+export default React.memo(CardSlider);

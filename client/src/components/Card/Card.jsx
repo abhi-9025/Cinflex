@@ -76,4 +76,4 @@ const Card = ({ movieData }) => {
   )
 };
 
-export default Card;
+export default React.memo(Card);

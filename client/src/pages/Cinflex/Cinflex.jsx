@@ -63,4 +63,4 @@ const Cinflex = () => {
   )
 }
 
-export default Cinflex
+export default React.memo(Cinflex)
