@@ -22,4 +22,4 @@ async function connect(){
 connect()
 
 app.use("/api/user",userRoutes)
-app.listen(5001,console.log("server started "))
+app.listen(8000,console.log("server started "))

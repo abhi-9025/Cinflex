@@ -68,6 +68,11 @@ export const getDataByGenre = createAsyncThunk(
   }
 );
 
+export const getUserLikedMovies=createAsyncThunk("cinflex/getLiked",async(email)=>{
+    const {data:{movies}}=await axios.get(`http://localhost:8000/api/user/liked/${email}`)
+    return movies
+})
+
 const cinflexSlice = createSlice({
   name: "cinflex",
   initialState,
@@ -80,6 +85,9 @@ const cinflexSlice = createSlice({
         state.movies = action.payload;
       }),
       builder.addCase(getDataByGenre.fulfilled, (state, action) => {
+        state.movies = action.payload;
+      }),
+      builder.addCase(getUserLikedMovies.fulfilled, (state, action) => {
         state.movies = action.payload;
       })
     )

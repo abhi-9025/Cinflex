@@ -7,10 +7,26 @@ import { BsCheck } from "react-icons/bs";
 import { AiOutlinePlus } from "react-icons/ai";
 import { BiChevronDown } from "react-icons/bi";
 import video from '../../assets/video.mp4'
+import axios from "axios";
+import { onAuthStateChanged } from "firebase/auth";
+import { firebaseAuth } from "../../utils/firebase-config";
 const Card = ({ movieData }) => {
   const navigate = useNavigate();
   const [isHovered, setIsHovered] = useState(false);
+  const [email,setEmail]=useState(undefined)
   const [isLiked,setIsLiked]=useState(false)
+  onAuthStateChanged(firebaseAuth,(currentUser)=>{
+    if(currentUser) setEmail(currentUser.email)
+    else navigate('/login')
+  })
+
+  const addToList=async()=>{
+    try {
+      await axios.post("http://localhost:8000/api/user/add",{email,data:movieData})
+    } catch (error) {
+       console.error(error)
+    }
+  }
   return (
     <div
     className="card__container"
@@ -48,18 +64,19 @@ const Card = ({ movieData }) => {
               <div className="controls">
                 <IoPlayCircleSharp
                   title="play"
+                  color="white"
                   onClick={() => navigate("/player")}
                 />
-                <RiThumbUpFill title="Like" />
-                <RiThumbDownFill title="DisLike" />
+                <RiThumbUpFill title="Like" color="white" />
+                <RiThumbDownFill title="DisLike" color="white" />
                 {isLiked ? (
-                  <BsCheck title="Remove from List" />
+                  <BsCheck title="Remove from List" color="white" />
                 ) : (
-                  <AiOutlinePlus title="Add to My List" />
+                  <AiOutlinePlus title="Add to My List" onClick={addToList}  color="white"/>
                 )}
               </div>
               <div className="info">
-                <BiChevronDown title="More Info" />
+                <BiChevronDown title="More Info"  />
               </div>
             </div>
             <div className="genres">
