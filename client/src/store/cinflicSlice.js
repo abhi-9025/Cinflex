@@ -73,6 +73,15 @@ export const getUserLikedMovies=createAsyncThunk("cinflex/getLiked",async(email)
     return movies
 })
 
+export const removeFromLikedMovies=createAsyncThunk("cinflex/deleteLiked",async(email,movieId)=>{
+    const {data:{movies}}=await axios.put(`http://localhost:8000/api/user/delete`,{
+        email,movieId
+    })
+    return movies
+})
+
+
+
 const cinflexSlice = createSlice({
   name: "cinflex",
   initialState,
@@ -88,6 +97,9 @@ const cinflexSlice = createSlice({
         state.movies = action.payload;
       }),
       builder.addCase(getUserLikedMovies.fulfilled, (state, action) => {
+        state.movies = action.payload;
+      }),
+      builder.addCase(removeFromLikedMovies.fulfilled, (state, action) => {
         state.movies = action.payload;
       })
     )

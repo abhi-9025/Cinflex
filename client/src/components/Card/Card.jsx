@@ -6,15 +6,16 @@ import { RiThumbUpFill, RiThumbDownFill } from "react-icons/ri";
 import { BsCheck } from "react-icons/bs";
 import { AiOutlinePlus } from "react-icons/ai";
 import { BiChevronDown } from "react-icons/bi";
-import video from '../../assets/video.mp4'
 import axios from "axios";
 import { onAuthStateChanged } from "firebase/auth";
 import { firebaseAuth } from "../../utils/firebase-config";
-const Card = ({ movieData }) => {
+import { useDispatch } from "react-redux";
+import { removeFromLikedMovies } from "../../store/cinflicSlice";
+const Card = ({ index,movieData,isLiked=false }) => {
   const navigate = useNavigate();
+  const dispatch=useDispatch()
   const [isHovered, setIsHovered] = useState(false);
   const [email,setEmail]=useState(undefined)
-  const [isLiked,setIsLiked]=useState(false)
   onAuthStateChanged(firebaseAuth,(currentUser)=>{
     if(currentUser) setEmail(currentUser.email)
     else navigate('/login')
@@ -49,7 +50,7 @@ const Card = ({ movieData }) => {
               onClick={() => navigate("/player")}
             />
             <video
-              src={video}
+              src=""
               autoPlay
               loop
               muted
@@ -70,7 +71,7 @@ const Card = ({ movieData }) => {
                 <RiThumbUpFill title="Like" color="white" />
                 <RiThumbDownFill title="DisLike" color="white" />
                 {isLiked ? (
-                  <BsCheck title="Remove from List" color="white" />
+                  <BsCheck title="Remove from List" color="white" onClick={()=>dispatch(removeFromLikedMovies({movieId:movieData.id,email}))} />
                 ) : (
                   <AiOutlinePlus title="Add to My List" onClick={addToList}  color="white"/>
                 )}
