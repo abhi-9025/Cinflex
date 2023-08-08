@@ -1,18 +1,19 @@
-import {BrowserRouter,Route,Router,Routes} from 'react-router-dom'
-import { Cinflex, Login, Player, Signup } from './pages';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Cinflex, Login, Movies, Player, Signup, Tvshows } from "./pages";
 
 function App() {
   return (
     <div className="App">
-       <BrowserRouter>
-       <Routes>
-        <Route exact path='/' Component={Cinflex}/>
-        <Route exact path='/login' Component={Login}/>
-        <Route exact  path='/signup' Component={Signup}/>
-        <Route exact path='player' Component={Player}/>
-       </Routes>
-       
-       </BrowserRouter>
+      <BrowserRouter>
+        <Routes>
+          <Route exact path="/" Component={Cinflex} />
+          <Route exact path="/login" Component={Login} />
+          <Route exact path="/signup" Component={Signup} />
+          <Route exact path="player" Component={Player} />
+          <Route exact path="/movies" Component={Movies}/>
+          <Route exact path="/tvseries" Component={Tvshows}/>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
