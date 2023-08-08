@@ -63,9 +63,9 @@ const Card = ({ movieData }) => {
               </div>
             </div>
             <div className="genres">
-              <ul>
+              <ul style={{display:'flex' ,flexDirection:'row',listStyle:'none'}}>
                 {movieData.genres.map((genre) => (
-                  <li key={genre} className="text-white">{genre}</li>
+                  <li key={genre} className="text-white" style={{marginRight:'1rem'}}>{genre}</li>
                 ))}
               </ul>
             </div>
