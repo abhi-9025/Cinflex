@@ -26,7 +26,7 @@ const Cinflex = () => {
  useEffect(()=>{
   if(genresLoaded)
     dispatch(getMovies({type:"all"}))
- },[])
+ },[genresLoaded])
 
   window.onscroll=()=>{
     setIsScrolled(window.pageYOffset===0?false:true);
