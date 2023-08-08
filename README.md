@@ -1,3 +1,3 @@
     **A full stack project**
-    *frontend using ReactJS*
-    *backend using NodeJS*
+    1.frontend using ReactJS
+    2.backend using NodeJS
